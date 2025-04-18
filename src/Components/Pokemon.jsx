@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "../index.css"
 import { useEffect } from 'react'
 import PokemonCards from './PokemonCards';
+import LoadingSpinner from './Loading';
 const Pokemon = () => {
     const [pokemon,setPokemon]=useState([]);
     const [loading,setLoading]=useState(true);
@@ -44,9 +45,7 @@ const Pokemon = () => {
 
 if(loading){
     return(
-        <div>
-            <h1>Loading....</h1>
-        </div>
+        <LoadingSpinner/>
     )
 }
 if(error){

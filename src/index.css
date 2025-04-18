@@ -46,6 +46,7 @@ span {
 .container {
   max-width: 152rem;
   margin: auto;
+  padding: 0 2rem;
 }
 
 .grid-three-cols {
@@ -71,10 +72,10 @@ header {
 .card-demo {
   display: flex;
   justify-content: center;
+}
 
-  & .pokemon-card {
-    min-height: 32rem;
-  }
+.card-demo .pokemon-card {
+  min-height: 32rem;
 }
 
 input[type="text"] {
@@ -82,8 +83,9 @@ input[type="text"] {
   border: none;
   outline: none;
   width: 32rem;
+  max-width: 90%;
   border-bottom: 0.2em solid #020d35;
-  background: rgba(#e91e63, 0.2);
+  background: rgba(233, 30, 99, 0.2);
   border-radius: 0.2em 0.2em 0 0;
   padding: 0.8em;
   font-size: 1.6rem;
@@ -100,10 +102,12 @@ input[type="text"] {
   justify-content: center;
   align-items: center;
   gap: 3.2rem;
+  padding: 0 2rem;
 }
 
 .pokemon-card {
-  width: 36rem;
+  width: 100%;
+  max-width: 36rem;
   min-height: 42rem;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
@@ -115,6 +119,7 @@ input[type="text"] {
   -o-border-radius: 0.2rem;
   padding: 1.6rem;
   position: relative;
+  margin: 0 auto;
 }
 
 .pokemon-card::before {
@@ -176,26 +181,26 @@ figure {
   display: flex;
   justify-content: center;
   align-items: center;
-
   margin: 1.6rem 0;
+}
 
-  & p {
-    padding: 0.6rem 2.4rem;
-    background-color: #2ecc71;
-    border-radius: 20rem;
-    -webkit-border-radius: 20rem;
-    -moz-border-radius: 20rem;
-    -ms-border-radius: 20rem;
-    -o-border-radius: 20rem;
-    color: #fff;
-    font-weight: bold;
-    text-transform: capitalize;
-  }
+.pokemon-highlight p {
+  padding: 0.6rem 2.4rem;
+  background-color: #2ecc71;
+  border-radius: 20rem;
+  -webkit-border-radius: 20rem;
+  -moz-border-radius: 20rem;
+  -ms-border-radius: 20rem;
+  -o-border-radius: 20rem;
+  color: #fff;
+  font-weight: bold;
+  text-transform: capitalize;
 }
 
 .pokemon-image {
   width: 60%;
   height: 15rem;
+  object-fit: contain;
 }
 
 pokemon-info {
@@ -204,18 +209,137 @@ pokemon-info {
 
 /* ///////////////////////////////////////// */
 .short-container {
-  width: 65rem;
+  width: 100%;
+  max-width: 65rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
 
-  & h1 {
-    margin-bottom: 3.2rem;
+.short-container h1 {
+  margin-bottom: 3.2rem;
+}
+
+.short-container p {
+  margin-bottom: 1.6rem;
+}
+
+.short-container button {
+  padding: 0.6rem 0;
+  cursor: pointer;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #eff3ff;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.spinner {
+  width: 64px;
+  height: 64px;
+  border: 4px solid #3b82f6;
+  border-top: 4px solid transparent;
+  border-radius: 50%;
+  margin-bottom: 16px;
+  animation: spin 1s linear infinite;
+}
+
+.loading-text {
+  font-size: 1.6rem;
+  color: #000;
+  font-weight: 500;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Media Queries */
+@media screen and (max-width: 1200px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
   }
+}
 
-  & p {
-    margin-bottom: 1.6rem;
+@media screen and (max-width: 992px) {
+  html {
+    font-size: 55%;
   }
+  
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grid-three-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
-  & button {
-    padding: 0.6rem 0;
-    cursor: pointer;
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 50%;
+  }
+  
+  h1 {
+    font-size: 4.8rem;
+  }
+  
+  .cards {
+    gap: 2rem;
+  }
+  
+  .spinner {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  html {
+    font-size: 45%;
+  }
+  
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .grid-three-cols {
+    grid-template-columns: 1fr;
+  }
+  
+  input[type="text"] {
+    width: 70%;
+  }
+  
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border-width: 3px;
+  }
+  
+  .loading-text {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  html {
+    font-size: 40%;
+  }
+  
+  h1 {
+    font-size: 4rem;
   }
 }
