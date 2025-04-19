@@ -152,8 +152,8 @@ input[type="text"] {
 
 .clear-search {
   position: absolute;
-  right: 1.5rem;
-  top: 50%;
+  right: 4rem;
+  top: 52%;
   transform: translateY(-50%);
   background: none;
   border: none;
@@ -169,7 +169,7 @@ input[type="text"] {
   gap: 1.6rem;
   justify-content: center;
   width: 100%;
-  max-width: 50rem;
+  max-width: 45rem;
 }
 
 .type-filter {
